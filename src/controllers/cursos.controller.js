@@ -14,10 +14,12 @@ const CursoController = {
       listaDeCursos.push({
          titulo,
          descricao,
-         professor,
+         professor
       });
-
-      fs.writeFileSync("../models/cursos.json", JSON.stringify(listaDeCursos));
+      console.log(req.body); // deletar depois
+      console.log(listaDeCursos); //deletar depois
+      fs.writeFileSync("./src/models/cursos.json", JSON.stringify(listaDeCursos));
+      console.log(listaDeCursos.length);
       return res.status(201).json({message: "Cadastro efetuado com sucesso!"});
    },
 };
