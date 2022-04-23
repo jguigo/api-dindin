@@ -35,7 +35,7 @@ async function listarCursos() {
                   <h2>${cursos[index].title}</h2>
                   <p>${cursos[index].description}</p>
                   <p>Professor: ${cursos[index].teacher}</p>
-                  <button class="delete-curso" curso-id=${cursos[index].id}> Deletar Curso </button>
+                  <button class="delete-curso" curso-id=${cursos[index].course_id}> Deletar Curso </button>
               </article>
           `;
       }
@@ -102,20 +102,20 @@ function adicionarEventoDeDelete() {
                method: "DELETE",
             };
             const response = await fetch(
-               `${BASE_URL}/cursos/${cursoId}}`,
+               `${BASE_URL}/cursos/${cursoId}`,
                requestConfig
             );
-            if (response.status !== 201) {
+            if (response.status !== 204) {
                return alert("Deu erro ao deletar");
             }
 
+            listarCursos();
             return alert("Deletado com sucesso!");
          } catch (error) {
             console.log(error);
             alert("Error ao tentar deletar um cursos");
          }
 
-         listarCursos();
       };
    });
 }
