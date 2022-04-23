@@ -32,9 +32,9 @@ async function listarCursos() {
          // += acrescentar novo valor
          htmlCursos += `
               <article class="card">
-                  <h2>${cursos[index].titulo}</h2>
-                  <p>${cursos[index].descricao}</p>
-                  <p>Professor: ${cursos[index].professor}</p>
+                  <h2>${cursos[index].title}</h2>
+                  <p>${cursos[index].description}</p>
+                  <p>Professor: ${cursos[index].teacher}</p>
                   <button class="delete-curso" curso-id=${cursos[index].id}> Deletar Curso </button>
               </article>
           `;

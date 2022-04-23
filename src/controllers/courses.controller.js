@@ -1,12 +1,22 @@
 const Courses = require("../models/Courses");
 
 const CoursesController = {
+
+   async listCourses(req, res){
+      try{
+         const courses = await Courses.findAll();
+
+         res.status(200).json(courses);
+      } catch(error){
+         console.log(error);
+      }
+   },
+
    async newCourse(req, res) {
       try {
-         console.log(req.body);
 
          const { title, description, teacher } = req.body;
-         
+
          if (!title || !description || !teacher) {
             return res.status(400).json({
                error: "Você precisa passar os atributos corretamente",
