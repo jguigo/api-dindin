@@ -115,7 +115,6 @@ function adicionarEventoDeDelete() {
             console.log(error);
             alert("Error ao tentar deletar um cursos");
          }
-
       };
    });
 }
